@@ -8,7 +8,7 @@ certifi==2023.11.17
 charset-normalizer==3.3.2
 colorama==0.4.6
 distro==1.8.0
-Django==5.0
+Django==4.2.8
 django-tinymce==3.6.1
 frozenlist==1.4.0
 h11==0.14.0
