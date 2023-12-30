@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-bu+vnc%dswh&+eal(j2x7@@9m((0hw-_0b+%!kp)+xuq6j3z-t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['namemesh-kkrp.vercel.app']
 
 
 # Application definition
