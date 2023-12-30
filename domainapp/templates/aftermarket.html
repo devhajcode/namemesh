@@ -1,0 +1,941 @@
+{% extends 'skeleton.html' %}
+{% load tags-checker %}
+{% load static %}
+
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/app3.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="body-wrapper bg-slate-200">
+      <section class="hero py-32">
+        <div class="hero-wrapper w-[60%] m-auto">
+          <div
+            class="hero-heading text-center w-[70%] m-auto flex flex-col gap-4"
+          >
+            <h2 class="text-[40px] font-bold">
+              Find Brandable Domains in Seconds
+            </h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Assumenda in nulla atque et nihil delectus, debitis maxime minima
+              officia dolorem soluta cupiditate odit.
+            </p>
+          </div>
+          <div class="hero-search w-[80%] m-auto text-center mt-8">
+            <div class="tools-navigation">
+              <ul class="flex justify-center gap-2 pb-4">
+                <li class="px-4 py-2 bg-gray-300 rounded-full"><a href="/">Keyword Based</a>
+                </li>
+                <li class="px-4 py-2 bg-gray-300 rounded-full"><a href="/ai-domain-generator/">AI Based</a></li>
+                <li class="px-4 py-2 rounded-full bg-[#057575b1] text-white">
+                 <a href="/after-market/">After Market</a>
+                </li>
+              </ul>
+            </div>
+            <form>
+              <div class="relative flex flex-col">
+                <input
+                  type="text"
+                  id="prompt"
+                  required=""
+                  placeholder="Enter keyword to generate brandable domain names."
+                  class="w-[100%] rounded-full border py-6 px-6 font-medium shadow-sm transition duration-100 ease-in-out focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#057575] focus:ring-opacity-80 pr-60"
+                  name="prompt"
+                  value=""
+                />
+                <div
+                  class="flex items-center absolute inset-y-0 right-0 space-x-2 pr-4"
+                >
+                  <button
+                    type="submit"
+                    aria-disabled="false"
+                    class="flex h-12 w-full items-center justify-center rounded-full bg-[#057575] px-4 py-3 font-medium text-white shadow-sm focus:bg-[#057575]"
+                  >
+                    <span>Generate</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="small-ctr mt-4 text-gray-500">
+              You have 3 free domain search left today.
+              <a href="" class="underline text-blue-600">Sign-Up</a> for
+              unlimited domain search.
+            </div>
+          </div>
+        </div>
+      </section>
+      <br /><br />
+    </div>
+
+    <br><br>
+  <div class="filter container m-auto bg-slate-100 border">
+    <div class="filter-wrapper p-8">
+      <div class="filter-box flex gap-6 justify-center">
+        <div class="double-filters w-[30%]">
+        <div class="filter1 bg-white p-4 rounded-lg">
+          <span>
+            <div class="filter-header flex gap-2 items-center cursor-pointer">
+              <i class="fa-solid fa-angle-down font-semibold text-xl"></i>
+              <i class="fa-solid fa-angle-up font-semibold text-xl feature-hidden"></i>
+              <h3 class="font-semibold text-xl">Register</h3>
+            </div>
+            <div class="filter-data feature-hidden mt-2 flex flex-col gap-2">
+
+              <div class="domain-register flex justify-between bg-slate-100 p-4 rounded-lg">
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>Godaddy</span>
+                </div>
+                <div class="domain-register-right">
+                  <span>2</span>
+                </div>
+              </div>
+
+              <div class="domain-register flex justify-between bg-slate-100 p-4 rounded-lg">
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>Namecheap</span>
+                </div>
+                <div class="domain-register-right">
+                  <span>1</span>
+                </div>
+              </div>
+
+            </div>
+
+          </span>
+        </div>
+        <div class="filter4 bg-white p-4 rounded-lg mt-4">
+          <span>
+            <div class="filter-header flex gap-2 items-center cursor-pointer">
+              <i class="fa-solid fa-angle-down font-semibold text-xl"></i>
+              <i class="fa-solid fa-angle-up font-semibold text-xl feature-hidden"></i>
+              <h3 class="font-semibold text-xl">SEMrush Data</h3>
+            </div>
+            <div class="filter-data feature-hidden mt-2 flex flex-col gap-2">
+
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">Rank</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">Keywords</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">Traffic</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">Cost</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </span>
+        </div>
+        
+      </div>
+      <div class="double-filters w-[30%]">
+        <div class="filter3 bg-white p-4 rounded-lg">
+          <span>
+            <div class="filter-header flex gap-2 items-center cursor-pointer">
+              <i class="fa-solid fa-angle-down font-semibold text-xl"></i>
+              <i class="fa-solid fa-angle-up font-semibold text-xl feature-hidden"></i>
+              <h3 class="font-semibold text-xl">SEO</h3>
+            </div>
+            <div class="filter-data feature-hidden mt-2 flex flex-col gap-2">
+
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">TF</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">MDP</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">CF</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">TTF</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </span>
+        </div>
+        <div class="filter2 bg-white p-4 rounded-lg mt-4">
+          <span>
+            <div class="filter-header flex gap-2 items-center cursor-pointer">
+              <i class="fa-solid fa-angle-down font-semibold text-xl"></i>
+              <i class="fa-solid fa-angle-up font-semibold text-xl feature-hidden"></i>
+              <h3 class="font-semibold text-xl">TLD</h3>
+            </div>
+            <div class="filter-data feature-hidden mt-2 flex flex-col gap-2">
+              <div class="domain-register flex justify-between bg-slate-100 p-4 rounded-lg">
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>.com</span>
+                </div>
+                <div class="domain-register-right">
+                  <span>3</span>
+                </div>
+              </div>
+            </div>
+
+          </span>
+        </div>
+      </div>
+      <div class="double-filters w-[30%]">
+        <div class="filter5 bg-white p-4 rounded-lg">
+          <span>
+            <div class="filter-header flex gap-2 items-center cursor-pointer">
+              <i class="fa-solid fa-angle-down font-semibold text-xl"></i>
+              <i class="fa-solid fa-angle-up font-semibold text-xl feature-hidden"></i>
+              <h3 class="font-semibold text-xl">Date</h3>
+            </div>
+            <div class="filter-data feature-hidden mt-2 flex flex-col gap-2">
+
+              <div class="domain-register">
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>only new last 12 hours</span>
+                </div>
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>only new last 24 hours</span>
+                </div>
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>only new last 48 hours</span>
+                </div>
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>only new last 7 days</span>
+                </div>
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>only new last 30 days</span>
+                </div>
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>only new last 60 days</span>
+                </div>
+                <div class="domain-register-left">
+                  <input type="checkbox" name="" id="">
+                  <span>only new last 90 days</span>
+                </div>
+              </div>
+<hr>
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">Ends in</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              
+            </div>
+
+          </span>
+        </div>
+        <div class="filter6 bg-white p-4 rounded-lg mt-4">
+          <span>
+            <div class="filter-header flex gap-2 items-center cursor-pointer">
+              <i class="fa-solid fa-angle-down font-semibold text-xl"></i>
+              <i class="fa-solid fa-angle-up font-semibold text-xl feature-hidden"></i>
+              <h3 class="font-semibold text-xl">Price</h3>
+            </div>
+            <div class="filter-data feature-hidden mt-2 flex flex-col gap-2">
+
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="w-[30%] font-semibold">Price</span> 
+                  <span class="w-[60%] flex gap-2">
+                    <input type="text" placeholder="min" class="w-[48%] border p-1">
+                    <input type="text" placeholder="max" class="w-[48%] border p-1">
+                  </span>
+                </div>
+              </div>
+              
+            </div>
+
+          </span>
+        </div>
+      </div>
+        
+      </div>
+      <div class="btn-filter flex justify-center mt-5">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 font-semibold rounded-md">Search <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    </div>
+  </div>
+  <br><br>
+
+  <hr>
+  <br><br>
+
+  <div class="table-wrapper m-16 bg-slate-100 p-4 rounded-lg">
+    <table id="myTable" class="container m-auto border-2 border-black">
+      <thead>
+        <tr class="flex gap-2 p-4 justify-around border-b-2 border-black">
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>Domain</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>Price</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>Bids</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>Ending</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>TF</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>MDP</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>CF</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>TTF</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>SRUST</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>SRUSK</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>SRUSR</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>SRUSRC</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>Backlinks</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>Created</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+          <td class="font-semibold flex gap-2 cursor-pointer select-none"><span>From</span><span><i
+                class="fa-solid fa-caret-up feature-hidden" style="color: #d4d4d4;"></i><i
+                class="fa-solid fa-caret-down" style="color: #d4d4d4;"></i></span></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr><tr class="flex gap-2 p-4 justify-around">
+          <td>abc.com</td>
+          <td>$1000</td>
+          <td>2</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>1394</td>
+          <td>64</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>hello.com</td>
+          <td>$20</td>
+          <td>712</td>
+          <td>39d 7h 46m</td>
+          <td>23</td>
+          <td>1221</td>
+          <td>46</td>
+          <td>83</td>
+          <td>146000</td>
+          <td>1657</td>
+          <td>61000</td>
+          <td>28300</td>
+          <td>872</td>
+          <td>1000</td>
+          <td>Namecheap</td>
+        </tr>
+        <tr class="flex gap-2 p-4 justify-around">
+          <td>bas.com</td>
+          <td>$800</td>
+          <td>24</td>
+          <td>30d 7h 46m</td>
+          <td>32</td>
+          <td>198</td>
+          <td>64</td>
+          <td>281</td>
+          <td>891212</td>
+          <td>12</td>
+          <td>27</td>
+          <td>28421300</td>
+          <td>872</td>
+          <td>Godaddy</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+
+    </ul>
+  </div>
+
+    <footer class="bg-white mt-[6rem] shadow dark:bg-gray-900">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Domainoka™</span>
+                </a>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Domainoka™</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    {% endblock content %}

@@ -1,0 +1,361 @@
+{% extends 'skeleton.html' %}
+{% load tags-checker %}
+{% load static %}
+
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/app2.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+<p>{{ product.extra_data }}</p>
+
+
+
+<div class="body-wrapper">
+  <section class="hero py-32">
+    <div class="hero-wrapper w-[60%] m-auto">
+      <div class="hero-heading text-center w-[70%] m-auto flex flex-col gap-4">
+        <h2 class="text-[40px] font-bold">
+          Find Brandable Domains in Seconds
+        </h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Assumenda in nulla atque et nihil delectus, debitis maxime minima
+          officia dolorem soluta cupiditate odit.
+        </p>
+      </div>
+      <div class="hero-search w-[80%] m-auto text-center mt-8">
+        <div class="tools-navigation">
+          <ul class="flex justify-center gap-2 pb-4">
+            <li class="px-4 py-2 bg-[#057575b1] rounded-full text-white">
+              <a href="/">Keyword Based</a>
+            </li>
+            <li class="px-4 py-2 bg-gray-300 rounded-full">
+              <a href="/ai-domain-generator/">AI Based</a>
+            </li>
+            <li class="px-4 py-2 bg-gray-300 rounded-full">
+              <a href="/after-market/">After Market</a>
+            </li>
+          </ul>
+        </div>
+        <form method="post" id="homeForm" action="{% url 'domain-checker' %}">
+          {% csrf_token %}
+          <div class="relative flex flex-col">
+            <input type="text" id="prompt" required="" placeholder="Enter keyword to generate brandable domain names."
+              class="w-[100%] rounded-full border py-6 px-6 font-medium shadow-sm transition duration-100 ease-in-out focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#057575] focus:ring-opacity-80 pr-60"
+              name="prompt" value="" required />
+            <div class="flex items-center absolute inset-y-0 right-0 space-x-2 pr-4">
+              <button type="submit" id="submitButton" aria-disabled="false"
+                class="flex h-12 w-full items-center justify-center rounded-full bg-[#057575] px-4 py-3 font-medium text-white shadow-sm focus:bg-[#057575]">
+                <span>Generate</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+<section class="namemesh-pro-clone-parent">
+  <div class="namemesh-pro-clone container m-auto">
+    <div class="npc-wrapper flex flex-wrap gap-4 justify-center items-start">
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-blue-400 font-bold text-2xl" style="margin-bottom: 10px;">Common</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for domain in common_domains.domains %}
+              {% if domain.price %}
+                <li class="flex justify-between" style="margin: 5px 0px;">
+                  <span class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{ domain.domain }}</span>
+                  <span>${{ domain.price }}</span>
+                </li>
+                <hr>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-purple-400 font-bold text-2xl" style="margin-bottom: 10px;">New</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for new_domain in new_domains.domains %}
+            {% if new_domain.price %}
+            <li class="flex justify-between" style="margin: 5px 0px;">
+              <span
+                class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{new_domain.domain}}</span><span>${{new_domain.price}}</span>
+            </li>
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-yellow-400 font-bold text-2xl" style="margin-bottom: 10px;">Short</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for new_domain in new_domains.domains %}
+            {% if new_domain.price %}
+            <li class="flex justify-between" style="margin: 5px 0px;">
+              <span
+                class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{new_domain.domain}}</span><span>${{new_domain.price}}</span>
+            </li>
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-red-400 font-bold text-2xl" style="margin-bottom: 10px;">Extra</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for new_domain in extra_domains_list.domains %}
+            {% if new_domain.price %}
+            <li class="flex justify-between" style="margin: 5px 0px;">
+              <span
+                class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{new_domain.domain}}</span><span>${{new_domain.price}}</span>
+            </li>
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-green-400 font-bold text-2xl" style="margin-bottom: 10px;">Similar</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for new_domain in new_domains.domains %}
+            {% if new_domain.price %}
+            <li class="flex justify-between" style="margin: 5px 0px;">
+              <span
+                class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{new_domain.domain}}</span><span>${{new_domain.price}}</span>
+            </li>
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-cyan-400 font-bold text-2xl" style="margin-bottom: 10px;">Seo</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for new_domain in seo_domains.domains %}
+            {% if new_domain.price %}
+            <li class="flex justify-between" style="margin: 5px 0px;">
+              <span
+                class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{new_domain.domain}}</span><span>${{new_domain.price}}</span>
+            </li>
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-fuchsia-400 font-bold text-2xl" style="margin-bottom: 10px;">Country Specific</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for new_domain in country_domains_list.domains %}
+            {% if new_domain.price %}
+            <li class="flex justify-between" style="margin: 5px 0px;">
+              <span
+                class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{new_domain.domain}}</span><span>${{new_domain.price}}</span>
+            </li>
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="npc-block w-[20%] bg-slate-100 p-4 rounded-lg">
+        <h2 class="text-gray-400 font-bold text-2xl" style="margin-bottom: 10px;">Mix</h2>
+        <div class="npc-domains">
+          <ul>
+            {% for new_domain in mix_domains.domains %}
+            {% if new_domain.price %}
+            <li class="flex justify-between" style="margin: 5px 0px;">
+              <span
+                class="text-green-600 cursor-pointer hover:text-green-700 domainVar">{{new_domain.domain}}</span><span>${{new_domain.price}}</span>
+            </li>
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr />
+
+
+<!-- Popup started -->
+
+<div class="left-wrapper hidden-el bg-white" style="position:relative; z-index: 20;width: 95%;margin: auto;">
+  <div class="left text-black overflow-auto overscroll-contain"
+    style="position: fixed;height: 75vh;bottom: 0;border-top-left-radius: 10px;border-top-right-radius: 10px;background-color: #e3eafd;width: 95%;box-shadow: -2px -3px 20px 0px #00000030;">
+    <div class="left-insider relative">
+      <div class="sticky-modal-header" style="padding: 2rem 3rem 1rem 3rem;
+        border-bottom: 1px solid silver;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #e3eafdf0;">
+        <div class="modal-header flex justify-between items-center">
+          <span class="flex gap-2 items-center">
+            <p class="font-bold inside-modal-domain-name text-2xl"></p>
+            <p id="copy"><i class="fa-regular fa-copy copy-slate cursor-pointer"></i></p>
+            <p id="copy-response">Successfully copied.</p>
+          </span>
+          <span class="closeButton">
+            <p
+              class="font-bold text-4xl my-auto close cursor-pointer select-none px-2 rounded-md items-center align-middle">
+              <i
+                class="fa-solid fa-xmark text-[20px] text-gray-400 rounded-full bg-slate-200 p-[13px] py-[10px] hover:bg-slate-400 hover:text-white"></i>
+            </p>
+          </span>
+        </div>
+        <div class="modal-meta flex justify-start items-center gap-3 mt-2 border-b pb-2">
+          <div class="speak-loud cursor-pointer text-blue-600">
+            <i class="fa-solid fa-volume-high"></i> Pronounce
+          </div>
+          <div class="searchOnGoogle cursor-pointer text-blue-600 lg:block">
+            <i class="fa-solid fa-square-arrow-up-right"></i> Search on Google
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-box p-6" style="display: flex;
+        flex-direction: column;
+        gap: 1rem;">
+        <div class="tlds-group flex flex-col gap-4" style="align-items: baseline;">
+          <div class="cheap-tlds p-4 w-[100%] bg-slate-100 rounded-lg text-sm relative">
+            <h3 class="text-2xl font-semibold mb-2">
+              <span class="d-pdf"></span> price on different platforms
+            </h3>
+            <ul class="lg:flex lg:flex-wrap items-center mt-4 text-sm ulElDiffPlatforms" style="visibility: visible; justify-content: space-between;">
+              <li class="flex justify-between w-[50%] tldDomainBox">
+                <span class="flex tldDomainBoxSpan">
+                  <i class="fa-solid fa-check text-[#46ba6a] pr-2 tldDomainBoxPFont"></i>
+                  <p class="tldDomainBoxPFont">$7.49</p>
+                </span>
+                <a href="https://namecheap.pxf.io/c/261076/386170/5618" target="_blank">
+                  <p class="text-blue-600 tldDomainBoxPFont lg:hidden lg:group-hover:block font-semibold">Dreamhost</p>
+                </a>
+              </li>
+              <li class="flex justify-between w-[50%] tldDomainBox">
+                <span class="flex tldDomainBoxSpan">
+                  <i class="fa-solid fa-check text-[#46ba6a] pr-2 tldDomainBoxPFont"></i>
+                  <p class="tldDomainBoxPFont">$13.29</p>
+                </span>
+                <a href="https://namecheap.pxf.io/c/261076/386170/5618" target="_blank">
+                  <p class="text-blue-600 tldDomainBoxPFont lg:hidden lg:group-hover:block font-semibold">Namecheap</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="available-tlds p-4 w-[100%] bg-slate-100 rounded-lg mt-5 relative">
+            <p class="text-2xl font-semibold">
+              Domain Availability by Extension
+            </p>
+            <div class="loader-tlds text-center feature-hidden" style="position: absolute;
+            left: 50%;
+            top: 50%;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <ul class="lg:flex lg:flex-wrap items-center mt-4 text-sm ulElement" style="visibility: visible; justify-content: space-between;">
+                
+            </ul>
+          </div>
+        </div>
+        <div class="search-group" style="display: flex;
+        flex-direction: column;
+        gap: 1rem;">
+          <div class="available-handle bg-slate-100 rounded-lg mt-5" style="width: 100%;padding: 30px">
+            <h2 class="font-semibold text-2xl">
+              Social Media Username Availability
+            </h2>
+            <div class="user-checker py-4">
+              <form action="" method="post" id="u-form">
+                {% csrf_token %}
+                <input type="search" name="u-search" id="u-search" class="p-4 w-[100%] cursor-pointer rounded-md"
+                  placeholder="Flix" />
+                <button type="submit" class="lg:w-auto w-[100%] p-4 rounded-md text-white mt-3 gap-2"
+                  style="background-color: #00A878;">
+                  <i class="fas fa-spinner fa-spin feature-hidden fa-spinner-u"></i> Check Username
+                </button>
+              </form>
+            </div>
+            <div class="social-box flex flex-wrap py-2" style="gap:2rem">
+              <p class="text-sm flex lg:flex-none lg:gap-0 lg:w-auto check-icon">
+                <i class="fa-brands fa-instagram flex pr-1.5"></i><span>Instagram</span>
+              </p>
+              <p class="text-sm flex lg:flex-none lg:gap-0 lg:w-auto check-icon">
+                <i class="fa-brands fa-twitter flex pr-1.5"></i><span>Twitter</span>
+              </p>
+              <p class="text-sm flex lg:gap-2 lg:w-auto lg:flex-none check-icon">
+                <i class="fa-brands fa-youtube flex pr-1.5"></i><span>Youtube</span>
+              </p>
+              <p class="text-sm flex lg:gap-2 lg:w-auto lg:flex-none check-icon">
+                <i class="fa-brands fa-reddit-alien flex pr-1.5"></i><span>Reddit</span>
+              </p>
+              <p class="text-sm flex lg:gap-2 lg:w-auto lg:flex-none check-icon">
+                <i class="fa-brands fa-tumblr flex pr-1.5"></i><span>Tumblr</span>
+              </p>
+            </div>
+          </div>
+          <div class="trademark-search bg-slate-100 rounded-lg mt-5" style="width: 100%;padding: 30px">
+            <p class="text-2xl font-semibold">Check Trademark Availability</p>
+            <form action="" method="post" id="tr-form">
+              {% csrf_token %}
+              <input type="search" name="tr-search" id="tr-search" class="w-[100%] p-4 rounded-md mt-5 cursor-pointer"
+                placeholder="Flix" />
+              <button type="submit" class="lg:w-auto w-[100%] text-white p-4 rounded-md mt-3 gap-2"
+                style="margin-right: 0.8rem;background-color: #00A878;">
+                <i class="fas fa-spinner fa-spin fa-spinner-t feature-hidden"></i>Search Trademark
+              </button>
+              <a href="https://tmsearch.uspto.gov/search/search-information" target="_blank" rel="noopener noreferrer">
+                <button type="submit" class="lg:w-auto w-[100%] text-white p-4 rounded-md mt-3"
+                  style="background-color: #00A878;">
+                  Check Manually <i class="fa-solid fa-arrow-up-long" style="transform: rotate(45deg);"></i>
+                </button>
+              </a>
+            </form>
+            <div class="tr-alert p-4 hidden">
+
+            </div>
+            <p class="text-sm text-gray-400 mt-2">
+              Currently trademark search is only availabe for United States
+              only.
+            </p>
+            <p class="text-sm text-gray-400 mt-2">
+              Note: Never use any trademark brand's name in your brand name or domain name. If you check
+              "GoogleMyBusiness" in trademark checker it may show that it is available to register, but as it
+              contains a already trademarked brand name "Google", to avoid legal issue you should avoid this type of
+              name.
+            </p>
+            <p class="text-sm text-gray-400 mt-2">
+              We are using USPTO trademark database for checking trademark availability. However it is always
+              advised to check manually before registering your domain. <a
+                href="https://www.uspto.gov/trademarks/search" target="_blank" rel="noopener noreferrer" class="td-info"
+                style="color: #0063EB;display: inline-flex;
+              align-items: center;
+              gap: 3px;">Check USPTO Trademark Database <i class="fa-solid fa-arrow-up-long"
+                  style="transform: rotate(45deg);"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

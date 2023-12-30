@@ -1,0 +1,82 @@
+<section class="namius-keyword-suggesion mt-10">
+    <div class="original-query container m-auto">
+      <div class="oq-child-ctr">
+        <p class="text-center font-semibold text-xl p-4">Original query</p>
+      </div>
+      <div
+        class="original-query-data container m-auto mt-8"
+      >
+        <ul class="w-[86%] mx-auto">
+          <li class="flex justify-between gap-2 w-[20%] hover:bg-[#EFEFEF] border border-transparent hover:border hover:border-t-black  hover:border-b-black items-start hover:cursor-pointer">
+            <div class="dqd-left flex justify-between gap-2 items-center">
+              <div
+                class="dl-left !text-[#0f964d] inline-block font-[15px] border"
+              >
+                ✓
+              </div>
+              <div class="dl-right text-lg text-[#0f964d]">acontentbite</div>
+            </div>
+            <div class="dqd-right">
+              <ul class="flex gap-2">
+                <li>.com</li>
+                <li>.net</li>
+                <li>.org</li>
+              </ul>
+            </div>
+          </li>
+  
+        </ul>
+      </div>
+    </div>
+    <div class="diffrent-query container mx-auto mt-8">
+      <div class="dq-child-ctr">
+        <p class="text-center font-semibold text-xl p-4">Different Variations</p>
+      </div>
+      <div class="diffrent-query-data">
+        <ul class="flex w-full flex-wrap gap-x-8 mt-8 justify-center">
+          {% for item in result %}
+          {% with external_url="https://www.namecheap.com/domains/registration/results/?domain="|add:item.keyword %}
+          <a href="{{ external_url }}" target="_blank" class="hover:bg-[#EFEFEF] border border-transparent hover:border hover:border-t-black hover:border-b-black hover:cursor-pointer ">
+          <li class="items-start flex justify-between gap-2 w-[20%]">
+            <div class="dqd-left flex justify-between gap-2 items-center">
+              <div
+                class="dl-left !text-[#0f964d] inline-block font-[15px] border"
+              >
+                ✓
+              </div>
+              <div class="dl-right text-lg text-[#0f964d]">{{ item.keyword }}</div>
+            </div>
+            <div class="dqd-right">
+              <ul class="flex gap-2">
+                {% if item.com == True %}
+                <li>.com</li>
+                {% else %}
+                <li style="color: rgba(70, 69, 69, 0.50)">.com</li>
+                {% endif %}
+  
+  
+                {% if item.net == True %}
+                <li>.net</li>
+                {% else %}
+                <li style="color: rgba(70, 69, 69, 0.50)">.net</li>
+                {% endif %}
+  
+  
+                {% if item.org == True %}
+                <li>.org</li>
+                {% else %}
+                <li style="color: rgba(70, 69, 69, 0.50)">.org</li>
+                {% endif %}
+                
+                
+              </ul>
+            </div>
+          </li>
+        </a>
+  
+        {% endwith %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
